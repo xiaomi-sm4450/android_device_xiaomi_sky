@@ -64,7 +64,18 @@ vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio graph manager
+vendor/bin/agmcap
+vendor/bin/agmcompressplay
+vendor/bin/agmplay
+vendor/bin/cplay
+vendor/bin/hw/vendor.qti.hardware.AGMIPC@1.0-service
+vendor/etc/init/vendor.qti.hardware.AGMIPC@1.0-service.rc
 -vendor/lib/libagm.so
+vendor/lib64/libagm_compress_plugin.so
+vendor/lib64/libagm_mixer_plugin.so
+vendor/lib64/libagm_pcm_plugin.so
+vendor/lib64/libagmclient.so
+vendor/lib64/libagmmixer.so
 vendor/lib/libagm_compress_plugin.so
 vendor/lib/libagm_mixer_plugin.so
 vendor/lib/libagm_pcm_plugin.so
@@ -74,6 +85,7 @@ vendor/lib/libagmmixer.so
 vendor/lib/vendor.qti.hardware.AGMIPC@1.0.so
 -vendor/lib64/libagm.so
 -vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so
 
 # Audio libraries
 vendor/etc/models/acd/event.eai
@@ -453,7 +465,6 @@ vendor/lib64/libscveObjectSegmentation.so
 vendor/lib64/libscveObjectTracker.so
 vendor/lib64/libscveObjectTracker_stub.so
 vendor/lib64/libsensorslog.so
-vendor/lib64/libstdc++.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsynx.so
 vendor/lib64/libtfestriping.so
@@ -1671,6 +1682,14 @@ vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
 vendor/lib/hw/vendor.qti.hardware.servicetracker@1.2-impl.so
 vendor/lib64/hw/vendor.qti.hardware.servicetracker@1.2-impl.so
+
+# QTI VNDK Framework Detect
+vendor/lib/libvndfwk_detect_jni.qti.so
+vendor/lib/libvndfwk_detect_jni.qti_vendor.so
+vendor/lib/libqti_vndfwk_detect_vendor.so
+vendor/lib64/libqti_vndfwk_detect_vendor.so
+vendor/lib64/libvndfwk_detect_jni.qti.so
+vendor/lib64/libvndfwk_detect_jni.qti_vendor.so
 
 # RIL
 product/app/uimgbaservice/uimgbaservice.apk

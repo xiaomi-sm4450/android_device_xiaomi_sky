@@ -11,9 +11,6 @@ ro.charger.enable_suspend=1
 # CNE
 persist.vendor.cne.feature=1
 
-# Enable system-side generic bluetooth audio HAL
-persist.bluetooth.system_audio_hal.enabled=1
-
 # Hint Manager
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
@@ -22,6 +19,10 @@ debug.hwui.target_cpu_time_percent=30
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
+
+# Property to enable HWC for VDS
+debug.sf.enable_hwc_vds=false
+vendor.display.vds_allow_hwc=true
 
 # RIL
 DEVICE_PROVISIONED=1
