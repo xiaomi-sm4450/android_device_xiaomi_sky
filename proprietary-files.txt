@@ -2109,6 +2109,10 @@ vendor/etc/thermal-videochat-jp.conf
 vendor/etc/thermal-videochat.conf
 vendor/etc/thermald-devices.conf
 
+# Thermal Service Client
+system_ext/lib/libthermalclient.qti.so
+system_ext/lib64/libthermalclient.qti.so
+
 # Time services
 vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
