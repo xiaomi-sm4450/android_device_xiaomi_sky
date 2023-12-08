@@ -82,7 +82,7 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # DTB
 BOARD_USES_DT := true
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtbs
-BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+BOARD_PREBUILT_DTBOIMAGE := $(BOARD_PREBUILT_DTBIMAGE_DIR)/dtbo.img
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
@@ -126,7 +126,8 @@ TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 TARGET_KERNEL_VERSION := 5.10
 LOCAL_KERNEL := $(KERNEL_PATH)/Image
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernel \
+    $(KERNEL_PATH)/dtbs/dtb:dtb.img
 
 # Kernel modules
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/vendor_ramdisk/modules.load))
