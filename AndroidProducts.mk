@@ -6,3 +6,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/evolution_sky.mk
+
+COMMON_LUNCH_CHOICES := \
+    evolution_sky-eng \
+    evolution_sky-userdebug \
+    evolution_sky-user

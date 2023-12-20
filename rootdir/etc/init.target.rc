@@ -75,6 +75,9 @@ on late-fs
     #exec_start wait_for_keymaster
     mount_all --late
 
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
     # Enable WLAN cold boot calibration
@@ -156,9 +159,6 @@ on boot
     chmod 0644 /sys/bus/platform/devices/soc:fpc1020/power_ctrl
     chmod 0644 /sys/bus/platform/devices/soc:fpc1020/screen
     chmod 0666  /dev/goodix_fp
-    start mi_thermald
-
-    write /sys/class/thermal/thermal_message/sconfig 500
 
 #For TP
     chown system system /sys/class/touch/touch_dev/palm_sensor
@@ -187,9 +187,6 @@ on property:vendor.display.lcd_density=560
 
 on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
-
-on property:sys.boot_completed=1
-    write /sys/class/thermal/thermal_message/sconfig 500
 
 #+ExtR HONGMI-168554, p-wangpeng39, 20230330, add, for gt_tg configuration single card requirements
 on property:ro.boot.multisim=*

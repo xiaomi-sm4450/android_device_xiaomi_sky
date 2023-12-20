@@ -157,6 +157,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
+# Charger
+PRODUCT_PACKAGES += \
+    libsuspend \
+    charger_res_images
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
@@ -192,7 +197,7 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1.vendor \
-    android.hardware.power@1.2.vendor \
+    android.hardware.power@1.3.vendor \
     libgrpc++_unsecure.vendor
 
 PRODUCT_COPY_FILES += \
@@ -286,6 +291,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # Media
 PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
@@ -331,9 +340,23 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Perf
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.perf@2.3.vendor
+    libpsi.vendor \
+    libtflite
+
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.perf@2.3.vendor \
+    vendor.qti.hardware.servicetracker@1.2.vendor
+
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
 
 # Power
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/perf,$(TARGET_COPY_OUT_VENDOR)/etc/perf) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/lm,$(TARGET_COPY_OUT_VENDOR)/etc/lm) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/pwr,$(TARGET_COPY_OUT_VENDOR)/etc/pwr)
+
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
@@ -342,6 +365,10 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 include $(DEVICE_PATH)/configs/properties/default.mk
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-3.9.1-vendorcompat
 
 # QTI
 PRODUCT_PACKAGES += \
@@ -366,6 +393,7 @@ PRODUCT_PACKAGES += \
     fstab.default \
     init.class_main.sh \
     init.sky.rc \
+    init.sky.perf.rc \
     init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -375,6 +403,9 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     ueventd-odm.rc \
     init.recovery.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
@@ -451,7 +482,12 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.qti-v2 \
+    android.hardware.thermal@2.0 \
     android.hardware.thermal@2.0.vendor
+
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.sys.thermal.data.path=/data/vendor/thermal/
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
@@ -469,9 +505,6 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
@@ -500,6 +533,7 @@ PRODUCT_PACKAGES += \
     libstdc++_vendor
 
 PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libbinder-v32.so \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libhidlbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libhidlbase-v32.so
