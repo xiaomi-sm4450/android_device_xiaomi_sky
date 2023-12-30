@@ -1514,9 +1514,7 @@ vendor/bin/hw/vendor.qti.hardware.servicetracker@1.2-service|6cc08cc256216aa8994
 vendor/bin/hw/vendor.qti.memory.pasrmanager-service|d8f6b81c057bb94778759c363b069fedc17b8446
 vendor/bin/hw/vendor.qti.psiclient@1.0-service|122d6bcff4d828885ae34d0564be4a4f3e4fd21a
 vendor/bin/msm_irqbalance|010cd4c5a11dd3b9b2c8f21ae83684ab2d175358
-vendor/bin/poweropt-service|1724994ff3f3e695eae1233a20d33e1db9656154
 vendor/bin/vendor.qti.qspmhal-service|27f34af67bed6964f22bde634d2e26717de78658
-vendor/etc/init/poweropt-service.rc|ab71ab0828fb67e9950b51220b61c3aad10985d0
 vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc|fd11367b2585702190ef2577ce2ce6fc68f3a2f8
 vendor/etc/init/vendor.qti.hardware.perf2-hal-service.rc|fc1cd8acaa4c8c7760c3da368685bbfd870919b8
 vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc|7cf06148da895586c20aab7e6bd01b806d8128b6
@@ -1549,8 +1547,6 @@ vendor/lib64/libpasrutils.so|1bbb42f2589f7215463e351407c36842e5104c28
 vendor/lib64/libperfconfig.so|6474a1f09726c1b06796edb387885c7fa4271547
 vendor/lib64/libperfgluelayer.so|90fb44aa8e0cbb6a9ccef2b49adaed55628fca7f
 vendor/lib64/libperfioctl.so|e2805d7b7e38f40bb19b49cee384d164f82437f5
-vendor/lib64/libpowercallback.so|95a2bf73845b5cd5c96366ce7cce827d461a7789
-vendor/lib64/libpowercore.so|2e66ce9f608243e9cecb2ef1a2b1dc5a940c0346
 vendor/lib64/libprefapps.so|0595b136749bfda9c6c5da9ce6694eaf1ad8ed29
 vendor/lib64/libprekill.so|7e00edd109dab75ea86e494a97b8ee70b994faf2
 vendor/lib64/libprocomp.so|998f4d2179848720efa8be14788cf3b0a656d102
@@ -1606,14 +1602,6 @@ vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
-
-# Poweropt
-vendor/bin/poweropt-service
-vendor/etc/init/poweropt-service.rc
-vendor/lib/libpowercallback.so
-vendor/lib/libpowercore.so
-vendor/lib64/libpowercallback.so
-vendor/lib64/libpowercore.so
 
 # Psiclient
 vendor/lib/libpsi.so
